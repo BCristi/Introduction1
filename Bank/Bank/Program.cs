@@ -35,13 +35,17 @@ namespace Bank
                         break;
                     case "2":
                         calcData.CreareCont();
+                        Console.WriteLine();
                         //menu = false;
                         break;
                     case "3":
                         calcData.DepunereBancara();
+                        Console.WriteLine();
                         //menu = false;
                         break;
                     case "4":
+                        calcData.RetragereBancara();
+                        Console.WriteLine();
                         break;
                     case "5":
                         break;
