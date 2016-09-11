@@ -15,12 +15,13 @@ namespace Bank
 
         static List<BanckAccount> _account;
 
-        public static List<BanckAccount> GetAccounts()
+        
+        static public List<BanckAccount> GetAccounts()
         {
             return _account;
         }
 
-        public static void CreareCont()
+        public void CreareCont()
         {
             Console.Write("Introduceti numele: ");
             var nume = Console.ReadLine();
@@ -40,16 +41,17 @@ namespace Bank
 
         }
 
-        public static void DepunereBancara()
+        public void DepunereBancara()
         {
             var obj = ObjectFromListBasedOnIBAN();
             Console.Write("Introduceti suma:");
+
             obj.Suma += Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Depunere cu succes. Suma totala este:{0}", obj.Suma);
         }
 
-        public static void RetragereBancara()
+        public void RetragereBancara()
         {
             var obj = ObjectFromListBasedOnIBAN();
 
@@ -57,9 +59,26 @@ namespace Bank
             obj.Suma -= Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Retragere cu succes. Suma totala este:{0}", obj.Suma);
+
+            //Cum mai trimit un parametru la event handler? precum suma care se doreste extrasa sau i-ul
+            //Cat de ok este ca trimit obj tinand cont si 'this'?
+            //Cat de ok este sa scad aia 5% acolo?
+            int i = obj.IBAN;
+            OnSumaRetrasa(obj, i);
         }
 
-        
+        public event EventHandler<BanckAccount> SumaRetrasa;
+
+
+        protected void OnSumaRetrasa(BanckAccount obj, int i)
+        {
+            if (SumaRetrasa != null)
+                SumaRetrasa(this, obj);
+        }
+ 
+
+
+        //Utilities
         public static BanckAccount ObjectFromListBasedOnIBAN()
         {
             Console.Write("IBANul este:");

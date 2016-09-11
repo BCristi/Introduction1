@@ -45,3 +45,8 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/Bank/.vs/Bank/v14
+/Bank/Bank/obj/Debug/Bank.csproj.FileListAbsolute.txt
+/Bank/Bank/obj/Debug/Bank.csprojResolveAssemblyReference.cache
+/Bank/Bank/obj/Debug/Bank.exe
+/Bank/Bank/obj/Debug/Bank.pdb

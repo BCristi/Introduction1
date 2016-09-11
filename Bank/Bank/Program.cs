@@ -11,9 +11,12 @@ namespace Bank
         static void Main(string[] args)
         {
             ComputeBankAccountData calcData = new ComputeBankAccountData();
-            ComputeBankAccountData calcData1 = new ComputeBankAccountData();
+            // ComputeBankAccountData calcData1 = new ComputeBankAccountData();
 
-            List<BanckAccount> accounts = ComputeBankAccountData.GetAccounts();
+            //List<BanckAccount> accounts = ComputeBankAccountData.GetAccounts();
+
+            ComissionService comision = new ComissionService();
+            calcData.SumaRetrasa += comision.OnRetragereBancara;
 
             var menu = true;
             while (menu)
@@ -37,20 +40,21 @@ namespace Bank
                         //menu = false;
                         break;
                     case "2":
-                        ComputeBankAccountData.CreareCont();
+                        calcData.CreareCont();
                         Console.WriteLine();
                         //menu = false;
                         break;
                     case "3":
-                        ComputeBankAccountData.DepunereBancara();
+                        calcData.DepunereBancara();
                         Console.WriteLine();
                         //menu = false;
                         break;
                     case "4":
-                        ComputeBankAccountData.RetragereBancara();
+                        calcData.RetragereBancara();
                         Console.WriteLine();
                         break;
                     case "5":
+                        
                         break;
                     case "6":
                         menu = false;
