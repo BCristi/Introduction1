@@ -56,24 +56,22 @@ namespace Bank
             var obj = ObjectFromListBasedOnIBAN();
 
             Console.Write("Introduceti suma pentru extragere:");
-            obj.Suma -= Convert.ToInt32(Console.ReadLine());
+            int sumaRetrasa = Convert.ToInt32(Console.ReadLine());
+            obj.Suma -= sumaRetrasa;
 
             Console.WriteLine("Retragere cu succes. Suma totala este:{0}", obj.Suma);
-
-            //Cum mai trimit un parametru la event handler? precum suma care se doreste extrasa sau i-ul
-            //Cat de ok este ca trimit obj tinand cont si 'this'?
-            //Cat de ok este sa scad aia 5% acolo?
-            int i = obj.IBAN;
-            OnSumaRetrasa(obj, i);
+            
+            OnSumaRetrasa(sumaRetrasa);
         }
 
-        public event EventHandler<BanckAccount> SumaRetrasa;
+        
+        public event EventHandler<ComisionEventArgs> SumaRetrasa;
 
 
-        protected void OnSumaRetrasa(BanckAccount obj, int i)
+        protected void OnSumaRetrasa(int sumaRetrasa)
         {
             if (SumaRetrasa != null)
-                SumaRetrasa(this, obj);
+                SumaRetrasa(this, new ComisionEventArgs() { SumaRetrasa = sumaRetrasa });
         }
  
 

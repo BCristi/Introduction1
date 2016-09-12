@@ -8,10 +8,11 @@ namespace Bank
 {
     class ComissionService
     {
-        public void OnRetragereBancara(object source, BanckAccount obj)
+        public void OnRetragereBancara(object source, ComisionEventArgs sumaRetrasa)
         {
-            Console.WriteLine("Comission service: s-a retras suma!");
-            obj.Suma -= obj.Suma * 5/100;
+            
+            sumaRetrasa.SumaRetrasa -= sumaRetrasa.SumaRetrasa* 95/100;
+            Console.WriteLine("S-a retinut comisionul de 5% din suma retrasa in valuare de: {0}", sumaRetrasa.SumaRetrasa);
         }
     }
 }

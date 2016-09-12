@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BanckAccount.cs" />
+    <Compile Include="ComisionEventArgs.cs" />
     <Compile Include="ComissionService.cs" />
     <Compile Include="ComputeBankAccountData.cs" />
     <Compile Include="Program.cs" />
