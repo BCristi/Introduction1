@@ -21,16 +21,20 @@ namespace Bank
             var menu = true;
             while (menu)
             {
+                Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+
                 Console.WriteLine("Alegeti optiunea dorita:");
-                Console.WriteLine();
+                Console.WriteLine("------------------------------------------------------");
 
                 Console.WriteLine("1 - Citire nume banca din fisier");
                 Console.WriteLine("2 - Creare cont");
                 Console.WriteLine("3 - Depunere bancara");
                 Console.WriteLine("4 - Retragere bancara");
                 Console.WriteLine("5 - Afisare sold");
-                Console.WriteLine("6 - Iesire");
-
+                Console.WriteLine("6 - Afisare primele 3 conturi cu sumele cele mai mare");
+                Console.WriteLine("7 - Iesire");
+                Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 var optiune = Console.ReadLine();
 
                 switch (optiune)
@@ -54,9 +58,13 @@ namespace Bank
                         Console.WriteLine();
                         break;
                     case "5":
-                        
+                        calcData.AfisareSold();
                         break;
                     case "6":
+                        calcData.AfisarePrimeleTreiSumeMaiMari();
+                        break;
+
+                    case "7":
                         menu = false;
                         break;
 

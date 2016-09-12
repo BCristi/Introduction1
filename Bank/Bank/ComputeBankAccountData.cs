@@ -74,7 +74,23 @@ namespace Bank
                 SumaRetrasa(this, new ComisionEventArgs() { SumaRetrasa = sumaRetrasa });
         }
  
+        public void AfisareSold()
+        {
+            BanckAccount obj = ObjectFromListBasedOnIBAN();
+            Console.WriteLine("Suma din cont este: {0}", obj.Suma);
+        }
 
+        public void AfisarePrimeleTreiSumeMaiMari()
+        {
+            var query = _account.OrderByDescending(x => x.Suma);
+            Console.WriteLine("Primele cele mai mari trei sume sunt: ");
+            int count = 0;
+            foreach (var item in query)
+            {
+                Console.WriteLine(item.Suma);
+                if (count >= 2) break;
+            }
+        }
 
         //Utilities
         public static BanckAccount ObjectFromListBasedOnIBAN()
