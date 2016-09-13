@@ -87,8 +87,9 @@ namespace Bank
             int count = 0;
             foreach (var item in query)
             {
+                if (count > 2) break;
                 Console.WriteLine(item.Suma);
-                if (count >= 2) break;
+                count++;
             }
         }
 
