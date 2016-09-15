@@ -93,6 +93,33 @@ namespace Bank
             }
         }
 
+        public void DeleteContByNameOrIBAN()
+        {
+            Console.WriteLine("Introduceti metoda prin care doriti sa stergeti contul: 1-Nume sau 2-IBAN");
+            var option = Convert.ToInt32(Console.ReadLine());
+
+
+            switch (option)
+            {
+                case 1:
+                    {
+                        string name = Console.ReadLine();
+                        _account.RemoveAll(x => x.NumeUser == name);
+                        break;
+                    }
+                case 2:
+                    {
+                        int iBAN = Convert.ToInt32(Console.ReadLine());
+                        _account.RemoveAll(x => x.IBAN == iBAN);
+                        break;
+                    }
+
+                default:
+                    Console.WriteLine("Optiunea introdusa nu este corecta. Alegeti intre 1 sau 2!");
+                    break;
+            }
+        }
+
         //Utilities
         public static BanckAccount ObjectFromListBasedOnIBAN()
         {

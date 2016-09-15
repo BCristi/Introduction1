@@ -33,7 +33,8 @@ namespace Bank
                 Console.WriteLine("4 - Retragere bancara");
                 Console.WriteLine("5 - Afisare sold");
                 Console.WriteLine("6 - Afisare primele 3 conturi cu sumele cele mai mare");
-                Console.WriteLine("7 - Iesire");
+                Console.WriteLine("7 - Stergere cont dupa nume sau IBAN");
+                Console.WriteLine("0 - Iesire");
                 Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 var optiune = Console.ReadLine();
 
@@ -63,8 +64,11 @@ namespace Bank
                     case "6":
                         calcData.AfisarePrimeleTreiSumeMaiMari();
                         break;
-
                     case "7":
+                        calcData.DeleteContByNameOrIBAN();
+                        break;
+
+                    case "0":
                         menu = false;
                         break;
 
