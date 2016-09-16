@@ -103,14 +103,33 @@ namespace Bank
             {
                 case 1:
                     {
+                        Console.Write("Introduceti numele care doriti sa fie sters: ");
                         string name = Console.ReadLine();
-                        _account.RemoveAll(x => x.NumeUser == name);
+                        if (_account.Exists(x => x.NumeUser == name))
+                        {
+                            _account.RemoveAll(x => x.NumeUser == name);
+                            Console.WriteLine("Contul/urile a/au fost sters/e!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contul cu numele cautat nu exista!");
+                        }
                         break;
                     }
                 case 2:
                     {
+                        Console.Write("Introduceti IBANul care doriti sa fie sters: ");
                         int iBAN = Convert.ToInt32(Console.ReadLine());
-                        _account.RemoveAll(x => x.IBAN == iBAN);
+                        if(_account.Exists(x => x.IBAN == iBAN))
+                        {
+                            _account.RemoveAll(x => x.IBAN == iBAN);
+                            Console.WriteLine("Contul/urile a/au fost sters/e!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Contul cu IBANul cautat nu exista!");
+                        }
+                        
                         break;
                     }
 
