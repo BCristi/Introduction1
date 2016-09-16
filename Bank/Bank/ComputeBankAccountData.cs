@@ -139,6 +139,24 @@ namespace Bank
             }
         }
 
+        public void ModificareNume()
+        {
+            Console.Write("Introduceti numele care doriti sa fie modificat: ");
+            string name = Console.ReadLine();
+            if (_account.Exists(x => x.NumeUser == name))
+            {
+                Console.Write("Introduceti noul nume: ");
+                string numeNou = Console.ReadLine();
+                var cont = _account.Find(x => x.NumeUser == name);
+                cont.NumeUser = numeNou;
+                Console.WriteLine("Contul are urmatoarele date Nume: {0}, IBAN: {1}", cont.NumeUser, cont.IBAN);
+            }
+            else
+            {
+                Console.WriteLine("Numele cautat nu exitsta!");
+            }
+        }
+
         //Utilities
         public static BanckAccount ObjectFromListBasedOnIBAN()
         {
